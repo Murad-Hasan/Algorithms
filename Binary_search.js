@@ -8,10 +8,7 @@ const array = [
  * @param {number} item Search item
  * @returns {(number|null)} Number if the value is found or NULL otherwise
  */
-const binary_search = (list, item) => {
-  let low = 0;
-  let high = list.length - 1;
-
+const binary_search = (list, item, low = 0, high = list.length - 1) => {
   while (low <= high) {
     let mid = Math.floor((low + high) / 2);
     let guess = list[mid];
