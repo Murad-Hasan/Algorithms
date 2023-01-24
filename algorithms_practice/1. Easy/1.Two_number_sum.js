@@ -32,36 +32,36 @@ const targetSum = 22;
  * @returns {Array<numbers>}
  */
 // ! Solution 2 # O(n) time | O(n) space
-// function twoNumSum(array, targetSum) {
-//   const nums = {}; // !Hash table
-//   for (const num of array) {
-//     let potentialMatch = targetSum - num;
-//     if (potentialMatch in nums) {
-//       return [potentialMatch, num];
-//     } else {
-//       nums[num] = true;
-//     }
-//   }
-//   return [];
-// }
-// console.log(twoNumSum(numbers, targetSum));
-
-// ! Solution 3 # O(nlog(n)) time | O(1) space
-const twoNumSum = (array, targetSum) => {
-  array.sort((a, b) => a - b);
-  let left = 0;
-  let right = array.length - 1;
-  while (left < right) {
-    currentSum = array[left] + array[right];
-    if (currentSum === targetSum) {
-      return [array[left], array[right]];
-    } else if (currentSum > targetSum) {
-      right -= 1;
+function twoNumSum(array, targetSum) {
+  const nums = {}; // !Hash table
+  for (const num of array) {
+    let potentialMatch = targetSum - num;
+    if (potentialMatch in nums) {
+      return [potentialMatch, num];
     } else {
-      left += 1;
+      nums[num] = true;
     }
   }
   return [];
-};
-
+}
 console.log(twoNumSum(numbers, targetSum));
+
+// ! Solution 3 # O(nlog(n)) time | O(1) space
+// const twoNumSum = (array, targetSum) => {
+//   array.sort((a, b) => a - b);
+//   let left = 0;
+//   let right = array.length - 1;
+//   while (left < right) {
+//     currentSum = array[left] + array[right];
+//     if (currentSum === targetSum) {
+//       return [array[left], array[right]];
+//     } else if (currentSum > targetSum) {
+//       right -= 1;
+//     } else {
+//       left += 1;
+//     }
+//   }
+//   return [];
+// };
+
+// console.log(twoNumSum(numbers, targetSum));
